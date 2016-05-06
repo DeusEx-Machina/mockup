@@ -1,0 +1,819 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>eSports Mockup</title>
+    <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+
+    <!-- scripts up top because this is quick and dirty-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="dist/foundation.js"></script>
+</head><body>
+
+<style>
+    .nav-section{
+
+        color:white;
+    }
+
+    .nav-section-list > li > a{
+        color:white;
+        border-right: 2px solid white;
+    }
+    .nav-section-list > li:hover{
+        background-color:red;
+    }
+
+    .top-score{
+        background-color: #eaeaea;
+        top: 0;
+        z-index: 10;
+        max-width: 100%;
+        width: 100%;
+    }
+
+
+    .top-score-content{
+        position: relative;
+        padding-left: 310px;
+        width: 1470px;
+    // overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .top-score img{
+        margin: 0;
+    }
+
+    .top-score-select-panel{
+        background-color: #eaeaea;
+        position: absolute;
+        top: 0;
+        height: 67px;
+        border-right: 1px solid #ddd;
+        left: 0px;
+        padding-right: 34px;
+        z-index: 2;
+    }
+
+    .top-score-select {
+        margin: 18px 0px 0 18px;
+        color: #535353;
+        height: 31px;
+        line-height: 2;
+        border: 1px solid #D0D0D0;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        cursor: pointer;
+        width: 120px;
+        float: left;
+        padding: 0 0 0 2px;
+        background: #fff;
+        outline: none;
+        font-family: 'Montserrat', serif;
+        font-size: 11px;
+        position: relative;
+        overflow: hidden;
+
+    button {
+        margin-top: 2px;
+        text-align: left;
+    }
+    }
+
+    .top-score-select:before{
+        font-family: "fontello";
+        content: '\e834';
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 8px;
+    }
+
+    .top-score-select:hover{
+        border-color: #c2c2c2;
+    }
+
+    .top-score-select-list{
+        background: #fff;
+        list-style: none;
+        padding: 0;
+        left: 0;
+        padding: 10px 15px;
+        display: none;
+        position: absolute;
+        z-index: 9999999999999;
+        width: 160px;
+        top: 29px;
+        margin: 0;
+        left: 0;
+        border: 1px solid #ddd;
+    }
+
+    .top-score-select-list li:hover{
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .top-score-select:hover .top-score-select-list{
+        display: block;
+    }
+
+    .top-score-arrow{
+        border-right: 1px solid #D0D0D0;
+        border-left: 1px solid #D0D0D0;
+        border-top: none;
+        border-bottom: none;
+        cursor: pointer;
+        background-color: #fff;
+        width: 47px;
+        color: #333;
+        height: 67px;
+        /*float: left;*/
+        z-index: 2;
+
+    // display: none; // Hiding. Display block with js
+    }
+
+    .top-score-arrow.left{
+        position: absolute;
+        top: 0px;
+        left: 310px;
+    }
+
+    .top-score-arrow:hover{
+        background-color: #f8f8f8;
+    }
+
+    .top-score-arrow.right{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background-color: #fff;
+        z-index: 99999999;
+
+    &:hover{
+         background-color: #f8f8f8;
+     }
+    }
+
+    .top-score-arrow2{
+        position: absolute;
+        top: 0;
+        z-index: 999999;
+        display: block;
+        right: 700px;
+        height: 67px;
+        background: #000;
+    }
+
+    .top-score-list-container{
+        width: 1160px;
+        overflow: hidden;
+    }
+
+    .top-score-list{
+        list-style: none;
+    // margin: 0 0 0 78px; // needed this to push off from 'previous' arrow
+    margin: 0;
+        padding: 0;
+        font-family: Helvetica, sans-serif;
+        font-size: 11px;
+    }
+
+    .top-score-list li:first-child{
+    // border-left: 1px solid #ddd;
+    }
+
+    .top-score-list .top-score-panel{
+        float: left;
+        border-right: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 67px;
+        width: 150px;
+        background-color: #fff;
+        position: relative;
+    }
+
+    .top-score-list .top-score-panel:hover .top-score-panel-meta2{
+        display: block;
+    }
+
+    .top-score-list .top-score-panel-score{
+        float: right;
+        position: relative;
+        text-align: right;
+    }
+
+    .top-score-arrow.left{
+        position: absolute;
+        top: 0px;
+        left: 310px;
+    }
+
+    .top-score-arrow:hover{
+        background-color: #f8f8f8;
+    }
+
+    .top-score-arrow.right{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background-color: #fff;
+        z-index: 99999999;
+
+    &:hover{
+         background-color: #f8f8f8;
+     }
+    }
+
+    .top-score-arrow2{
+        position: absolute;
+        top: 0;
+        z-index: 999999;
+        display: block;
+        right: 700px;
+        height: 67px;
+        background: #000;
+    }
+
+    .top-score-list-container{
+        width: 1160px;
+        overflow: hidden;
+    }
+
+    .top-score-list{
+        list-style: none;
+    // margin: 0 0 0 78px; // needed this to push off from 'previous' arrow
+    margin: 0;
+        padding: 0;
+        font-family: Helvetica, sans-serif;
+        font-size: 11px;
+    }
+
+    .top-score-list li:first-child{
+    // border-left: 1px solid #ddd;
+    }
+
+    .top-score-list .top-score-panel{
+        float: left;
+        border-right: 1px solid #D0D0D0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 67px;
+        width: 150px;
+        background-color: #fff;
+        position: relative;
+    }
+
+    .top-score-list .top-score-panel:hover .top-score-panel-meta2{
+        display: block;
+    }
+
+    .top-score-list .top-score-panel-score{
+        float: right;
+        position: relative;
+        text-align: right;
+    }
+
+    .top-score-list .top-score-panel-meta2{
+        background-color: #f7f7f7;
+        position: absolute;
+        text-align: center;
+        display: none;
+        padding: 18px;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+    }
+
+    .top-score-list .winner:after{
+        position: absolute;
+        content: "";
+        top: 4px;
+        right: -4px;
+        /*margin-right: -5px;*/
+        /*z-index: 2;*/
+        display: block;
+        width: 2px;
+        height: 11px;
+        background-color: #e90632;
+    }
+
+    .top-score-list .top-score-panel .top{
+        color: #A4A4A4;
+        font-size: 11px;
+        line-height: 19px;
+        font-family: Helvetica, sans-serif;
+        padding-left: 5px;
+        height: 19px;
+        width: 100%;
+    // background-color: #F3F3F3;
+    // border-bottom: 1px solid #ddd;
+    }
+
+    .top-score-list .top-score-panel-teams{
+        float: left;
+        width: 145px;
+    }
+
+    .top-score-list .top-score-panel-team{
+        height: 20px;
+        /*overflow: auto;*/
+        /*width: 200px;*/
+        padding-left: 5px;
+        line-height: 20px;
+        margin-top: 2.5px;
+        color: #000;
+        /*float: left;*/
+    }
+
+    .top-score-list .top-score-panel-team.loser{
+        color: #adadad;
+    }
+
+    .top-score-list .top-score-panel-team img{
+        float: left;
+        margin-right: 5px;
+    }
+
+    .top-score-list .top-score-list-logo{
+        float: left;
+        border-right: 1px solid #D0D0D0;
+        width: 100px;
+        height: 67px;
+        text-align: center;
+        background-color: #fff;
+        position: relative;
+    }
+
+    .top-score-list .top-score-list-logo:after{
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: 0;
+        top: 22px;
+        margin-right: -10px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #fff;
+        content: "";
+    }
+
+    .top-score-list .top-score-list-logo-text{
+        float: left;
+        border-right: 1px solid #D0D0D0;
+        width: 100px;
+        padding: 0 10px;
+        height: 67px;
+        text-align: center;
+        background-color: #f7f7f7;
+    // padding-top: 18px;
+        color: #333;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 1.2;
+        position: relative;
+        display: table;
+    }
+
+    .top-score-list .top-score-list-logo-text span{
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .top-score-list .top-score-list-logo:before{
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: 0;
+        top: 22px;
+        margin-right: -11px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #D0D0D0;
+        content: "";
+    }
+
+    .top-score-list .top-score-list-logo img{
+        margin: 13px 0 0 0;
+    }
+
+    .top-score-list .top-score-list-logo.stick{
+        position: fixed;
+        top: 0;
+        left: 227px;
+        z-index: 4;
+    }
+
+    .top-score-list .top-score-panel-meta{
+        float: left;
+        /*width: 100px;*/
+        height: 47px;
+        margin-left: 4px;
+        border-left: 1px solid #ddd;
+        padding-left: 19px;
+        display: block;
+        display: table;
+    }
+
+    .top-score-list .top-score-panel-meta span{
+        display: table-cell;
+        vertical-align: middle;
+        line-height: 1.1;
+        color: #949292;
+    }
+
+    .top-score-list .top-score-panel-alert{
+        line-height: 1;
+        margin-top: 16px;
+        margin-left: 14px;
+        text-align: center;
+        float: right;
+        color: #949292;
+        font-size: 14px;
+    }
+
+    .top-score-list .top-score-panel-alert.active .icon-bell{
+        color: #e90632;
+    }
+
+    .top-score-panel-button {
+        color: #535353;
+        height: 25px;
+        line-height: 2;
+        border: 1px solid #D0D0D0;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        cursor: pointer;
+        max-width: 100px;
+    // float: left;
+        margin: 20px auto;
+        background: #fff;
+        outline: none;
+        font-family: 'Montserrat', serif;
+        font-size: 11px;
+        position: relative;
+        text-align: center;
+    }
+
+    .top-score-panel-button:hover {
+        background-color: $blue;
+        color: #FFF;
+    }
+
+</style>
+<header>
+
+
+    <div class="top-bar" style="background-color: darkred; opacity: .95">
+        <div class="top-bar-left" style="border-right: 2px solid white;">
+            <img style="padding:10px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHdpZHRoPSIxMzBweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMTMwIDE4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4NCiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDMuMy4zICgxMjA4MSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+DQogICAgPHRpdGxlPlBWUCBMaXZlIExvZ288L3RpdGxlPg0KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPg0KICAgIDxkZWZzPjwvZGVmcz4NCiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4NCiAgICAgICAgPGcgaWQ9IkZhdm9yaXRlLUVkaXQtLS0xNDQwcHgtQ29weS0zIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIuMDAwMDAwLCAtODIuMDAwMDAwKSIgZmlsbD0iI0ZGRkZGRiI+DQogICAgICAgICAgICA8ZyBpZD0iTmF2LUJhciIgc2tldGNoOnR5cGU9Ik1TTGF5ZXJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDY4LjAwMDAwMCkiPg0KICAgICAgICAgICAgICAgIDxnIGlkPSJQVlAtTGl2ZS1Mb2dvIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMi4wMDAwMDAsIDE0LjAwMDAwMCkiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPg0KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjEuNTc3MTQzNyw2LjIwMDU5NzggQzIxLjQxNzY2ODYsNy4wNTEyOTIzMSAyMS4xNTEwODMzLDcuODM0NTM2MjYgMjAuNzc2OTkxMiw4LjU0ODY5NDUxIEMyMC40MDI4OTksOS4yNjMyNjE1NCAxOS45MDEwNjgxLDkuODc4NDkyMzEgMTkuMjcxNDk4MywxMC4zOTQzODY4IEMxOC42NDIzMjUzLDEwLjkxMTA5ODkgMTcuODc1MDk5MiwxMS4zMTM3NTgyIDE2Ljk3MTgwMzUsMTEuNjAyNzczNiBDMTYuMDY4NTA3OCwxMS44OTIxOTc4IDE1LjAwNzMyMzgsMTIuMDM2MDkyMyAxMy43ODg2NDgyLDEyLjAzNjA5MjMgTDYuMzgyOTcyMjMsMTIuMDM2MDkyMyBMNS4zNzc3MjM1MywxNy40MTMzMzE5IEwwLjkxNjc4MzY0NCwxNy40MTMzMzE5IEw0LjEwMTEyOTA4LDAuMzkwNDQ4MzUyIEwxNS45NjczNDgyLDAuMzkwNDQ4MzUyIEMxNy4xODU2MjcxLDAuMzkwNDQ4MzUyIDE4LjE5Mjg1OTMsMC41MzM1MjUyNzUgMTguOTg5NDQxNiwwLjgxODA0Mzk1NiBDMTkuNzg1MjMwNCwxLjEwMjk3MTQzIDIwLjQwMTMxMjIsMS41MDM5OTU2IDIwLjgzODA4MzYsMi4wMTk4OTAxMSBDMjEuMjc0NDU4MywyLjUzNjE5MzQxIDIxLjU0Njk5NDIsMy4xNDkzODAyMiAyMS42NTQxMDQ0LDMuODU5NDUwNTUgQzIxLjc2MjAwNzksNC41Njk5Mjk2NyAyMS43MzU4MjU1LDUuMzUwMzEyMDkgMjEuNTc3MTQzNyw2LjIwMDU5NzggTDIxLjU3NzE0MzcsNi4yMDA1OTc4IFogTTE3LjA1NDcxNDcsNi4yNzU4MTUzOCBDMTcuMTI4NTAxNyw1Ljg3OTI4NzkxIDE3LjEzODQxOTMsNS41Mzg3NjQ4NCAxNy4wODMyNzc0LDUuMjUzNDI4NTcgQzE3LjAyODkyODksNC45Njg1MDExIDE2Ljg5MzY1MjcsNC43MzUwODEzMiAxNi42Nzk0MzI0LDQuNTUzNTc4MDIgQzE2LjQ2NDQxODcsNC4zNzE2NjU5MyAxNi4xNjUzMDM2LDQuMjM3NTgyNDIgMTUuNzgwODk3Miw0LjE1MDUwOTg5IEMxNS4zOTYwOTQsNC4wNjQyNTQ5NSAxNC45MTEzMjEzLDQuMDIwOTIzMDggMTQuMzI2MTgyNSw0LjAyMDkyMzA4IEw3Ljg4MjUxNDQ5LDQuMDIwOTIzMDggTDcuMDYxNzMzMjksOC40MDY4NDM5NiBMMTMuNTA2MTk0Nyw4LjQwNjg0Mzk2IEMxNC4wOTA1NDAxLDguNDA2ODQzOTYgMTQuNTg5OTkwOCw4LjM3MTY4NzkxIDE1LjAwNDU0NjgsOC4zMDEzNzU4MiBDMTUuNDE4MzA5NCw4LjIzMTA2Mzc0IDE1Ljc2NTQyNTcsOC4xMTA4NzkxMiAxNi4wNDU4OTU2LDcuOTQyMDQ4MzUgQzE2LjMyNTU3MjIsNy43NzI4MDg3OSAxNi41NDU3NDMxLDcuNTUxNjUyNzUgMTYuNzA0NDI0OCw3LjI3ODk4OTAxIEMxNi44NjM1MDMyLDcuMDA2NzM0MDcgMTYuOTgwNTMxLDYuNjcyMzQyODYgMTcuMDU0NzE0Nyw2LjI3NTgxNTM4IEwxNy4wNTQ3MTQ3LDYuMjc1ODE1MzggWiIgaWQ9IkZpbGwtNCI+PC9wYXRoPg0KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzIuNjgxNjkwNiwxNy40MTI5MjMxIEwyNy40ODgwMzc4LDE3LjQxMjkyMzEgTDIyLjMxNjYwMDUsMC4zOTA0NDgzNTIgTDI3LjI5MzY1MjcsMC4zOTA0NDgzNTIgTDMwLjkwODQyMjMsMTMuMjAxMTQ3MyBMMzkuMzA0MjcyMiwwLjM5MDQ0ODM1MiBMNDQuMjgxNzIxMSwwLjM5MDQ0ODM1MiBMMzIuNjgxNjkwNiwxNy40MTI5MjMxIiBpZD0iRmlsbC01Ij48L3BhdGg+DQogICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik02My4wODA3NDQ2LDYuMjAwNTk3OCBDNjIuOTIyMDYyOSw3LjA1MTI5MjMxIDYyLjY1NDY4NDIsNy44MzQ1MzYyNiA2Mi4yODA5ODg3LDguNTQ4Njk0NTEgQzYxLjkwNjg5NjYsOS4yNjMyNjE1NCA2MS40MDUwNjU2LDkuODc4NDkyMzEgNjAuNzc1ODkyNiwxMC4zOTQzODY4IEM2MC4xNDU5MjYyLDEwLjkxMTA5ODkgNTkuMzc5MDk2NywxMS4zMTM3NTgyIDU4LjQ3NTgwMSwxMS42MDIzNjQ4IEM1Ny41NzIxMDg2LDExLjg5MTc4OSA1Ni41MTA5MjQ2LDEyLjAzNjA5MjMgNTUuMjkyNjQ1NywxMi4wMzYwOTIzIEw0Ny44ODY5Njk4LDEyLjAzNjA5MjMgTDQ2Ljg4MTMyNDQsMTcuNDEyOTIzMSBMNDIuNDIwNzgxMiwxNy40MTI5MjMxIEw0NS42MDUxMjY2LDAuMzkwNDQ4MzUyIEw1Ny40NzEzNDU3LDAuMzkwNDQ4MzUyIEM1OC42ODkyMjgsMC4zOTA0NDgzNTIgNTkuNjk2ODU2OSwwLjUzMzUyNTI3NSA2MC40OTM0MzkxLDAuODE4MDQzOTU2IEM2MS4yODkyMjgsMS4xMDI5NzE0MyA2MS45MDUzMDk3LDEuNTAzOTk1NiA2Mi4zNDIwODEyLDIuMDE5ODkwMTEgQzYyLjc3ODQ1NTksMi41MzYxOTM0MSA2My4wNTAxOTg0LDMuMTQ5MzgwMjIgNjMuMTU4NDk4NiwzLjg1OTQ1MDU1IEM2My4yNjU2MDg4LDQuNTY5OTI5NjcgNjMuMjM5ODIzLDUuMzUwMzEyMDkgNjMuMDgwNzQ0Niw2LjIwMDU5NzggTDYzLjA4MDc0NDYsNi4yMDA1OTc4IFogTTU4LjU1ODMxNTUsNi4yNzU4MTUzOCBDNTguNjMyMTAyNSw1Ljg3OTI4NzkxIDU4LjY0MjQxNjgsNS41Mzg3NjQ4NCA1OC41ODcyNzQ5LDUuMjUzNDI4NTcgQzU4LjUzMjUyOTgsNC45Njg1MDExIDU4LjM5NzY1MDMsNC43MzQ2NzI1MyA1OC4xODM0Myw0LjU1MzE2OTIzIEM1Ny45Njg4MTI5LDQuMzcxNjY1OTMgNTcuNjY5Njk3OSw0LjIzNzU4MjQyIDU3LjI4NDQ5OCw0LjE1MDUwOTg5IEM1Ni45MDA0ODgzLDQuMDY0MjU0OTUgNTYuNDE1MzE4OSw0LjAyMDUxNDI5IDU1LjgzMDU3NjcsNC4wMjA1MTQyOSBMNDkuMzg2NTEyMSw0LjAyMDUxNDI5IEw0OC41NjYxMjc2LDguNDA2ODQzOTYgTDU1LjAwOTc5NTUsOC40MDY4NDM5NiBDNTUuNTk1MzMxMSw4LjQwNjg0Mzk2IDU2LjA5NDM4NTEsOC4zNzEyNzkxMiA1Ni41MDgxNDc3LDguMzAxMzc1ODIgQzU2LjkyMjMwNyw4LjIzMTA2Mzc0IDU3LjI2OTQyMzMsOC4xMTA4NzkxMiA1Ny41NDk0OTY1LDcuOTQxNjM5NTYgQzU3LjgyOTE3Myw3Ljc3MjgwODc5IDU4LjA0OTM0MzksNy41NTEyNDM5NiA1OC4yMDg0MjIzLDcuMjc4OTg5MDEgQzU4LjM2Nzg5NzUsNy4wMDY3MzQwNyA1OC40ODQxMzE4LDYuNjcyMzQyODYgNTguNTU4MzE1NSw2LjI3NTgxNTM4IEw1OC41NTgzMTU1LDYuMjc1ODE1MzggWiIgaWQ9IkZpbGwtNiI+PC9wYXRoPg0KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNjMuODgxNjkwNiwxNy40MTI5MjMxIEw2Ny4wNjYwMzYsMC4zOTA0NDgzNTIgTDY4LjU2ODc1MTksMC4zOTA0NDgzNTIgTDY1LjY1NTc1MjIsMTUuOTYzNzU4MiBMNzcuNzI2Mjc0LDE1Ljk2Mzc1ODIgTDc3LjQ1NTMyNSwxNy40MTI5MjMxIEw2My44ODE2OTA2LDE3LjQxMjkyMzEiIGlkPSJGaWxsLTciPjwvcGF0aD4NCiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTgwLjMyNDI5MDUsMTcuNDEyOTIzMSBMODMuNTA5MDMyNywwLjM5MDQ0ODM1MiBMODUuMDEyMTQ1MywwLjM5MDQ0ODM1MiBMODEuODI3NDAzMSwxNy40MTI5MjMxIEw4MC4zMjQyOTA1LDE3LjQxMjkyMzEiIGlkPSJGaWxsLTgiPjwvcGF0aD4NCiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTk0Ljk1OTEwODksMTcuNDEyOTIzMSBMOTIuNzEwOTg1NywxNy40MTI5MjMxIEw4Ny42NDc0NTE5LDAuMzkwNDQ4MzUyIEw4OS4zMzA2NjgzLDAuMzkwNDQ4MzUyIEw5NC4wNzY0NDE5LDE2LjM0NzIwNDQgTDEwNC43OTIyMTgsMC4zOTA0NDgzNTIgTDEwNi40NjMxMzcsMC4zOTA0NDgzNTIgTDk0Ljk1OTEwODksMTcuNDEyOTIzMSIgaWQ9IkZpbGwtOSI+PC9wYXRoPg0KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTA1Ljg5MDY5MywxNy40MTI5MjMxIEwxMDkuMDc1MDM4LDAuMzkwNDQ4MzUyIEwxMjIuODQwNjc3LDAuMzkwNDQ4MzUyIEwxMjIuNTY5MzMyLDEuODQwNDMwNzcgTDExMC40Mzg5MDgsMS44NDA0MzA3NyBMMTA5LjM0MjQxNyw3LjcwMDQ1Mjc1IEwxMjAuODU5OTMzLDcuNzAwMDQzOTYgTDEyMC41OTYxMjUsOS4xMTI0MTc1OCBMMTA5LjA3ODYwOCw5LjExMjQxNzU4IEwxMDcuNzk3MjU0LDE1Ljk2Mzc1ODIgTDEyMC4xMDc3ODIsMTUuOTYzNzU4MiBMMTE5LjgzNjgzMiwxNy40MTI5MjMxIEwxMDUuODkwNjkzLDE3LjQxMjkyMzEiIGlkPSJGaWxsLTEwIj48L3BhdGg+DQogICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMjYuNTg4MzQzLDAuNzE1NDM3MzYzIEwxMjYuNTg4MzQzLDIuNDkyODYxNTQgTDEyNi4yNDQwMDQsMi40OTI4NjE1NCBMMTI2LjI0NDAwNCwwLjcxNTQzNzM2MyBMMTI1LjYyNTU0MiwwLjcxNTQzNzM2MyBMMTI1LjYyNTU0MiwwLjM5MDQ0ODM1MiBMMTI3LjIwNzIwMiwwLjM5MDQ0ODM1MiBMMTI3LjIwNzIwMiwwLjcxNTQzNzM2MyBMMTI2LjU4ODM0MywwLjcxNTQzNzM2MyIgaWQ9IkZpbGwtMTEiPjwvcGF0aD4NCiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEyNy45MjUyMzYsMi40OTI4NjE1NCBMMTI3LjU4MDg5NywyLjQ5Mjg2MTU0IEwxMjcuNTgwODk3LDAuMzkwNDQ4MzUyIEwxMjguMTE4MDM1LDAuMzkwNDQ4MzUyIEwxMjguNzMzNzIsMS43MTA4NDM5NiBMMTI5LjM0OTgwMiwwLjM5MDQ0ODM1MiBMMTI5Ljg4Mzc2NiwwLjM5MDQ0ODM1MiBMMTI5Ljg4Mzc2NiwyLjQ5Mjg2MTU0IEwxMjkuNTM5NDI2LDIuNDkyODYxNTQgTDEyOS41Mzk0MjYsMC44NTA3NDcyNTMgTDEyOC44MjY5NDUsMi4zMDkzMTQyOSBMMTI4LjYzNDU0NCwyLjMwOTMxNDI5IEwxMjcuOTI1MjM2LDAuODUwNzQ3MjUzIEwxMjcuOTI1MjM2LDIuNDkyODYxNTQiIGlkPSJGaWxsLTEyIj48L3BhdGg+DQogICAgICAgICAgICAgICAgPC9nPg0KICAgICAgICAgICAgPC9nPg0KICAgICAgICA8L2c+DQogICAgPC9nPg0KPC9zdmc+">
+        </div>
+
+        <div class="top-bar" style="background-color: darkred; display:inline-block; padding:0">
+            <img style="padding: 2px 15px; display:inline;" src="https://cdn0.iconfinder.com/data/icons/duesseldorf/32/user.png">
+            <h5 style="color:white; display:inline; vertical-align: middle;">Sign In</h5>
+        </div>
+
+        <div class="top-bar-right" >
+            <ul class="menu nav-section-list" style="background-color: darkred; color:white; padding-right: 20px;">
+                <li><a href="#">These should be favorites:</a></li>
+                <li><a href="#">Rocket League</a></li>
+                <li><a href="#">Heroes</a></li>
+                <li><a href="#">League</a></li>
+                <li><a href="#">CS GO</a></li>
+                <li><a href="#">Halo</a></li>
+                <li><a href="#">Call of Duty</a></li>
+                <li id="more-menu"><a href="#" style="border-right:none;">More...</a>
+                   </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+    <div class="top-score">
+
+        <div class="top-score-content">
+
+            <!-- <button type="button" name="button" class="top-score-arrow2">Next</button> -->
+
+            <button data-dir="next" class="top-score-arrow right">
+                <span class="icon-right-open"></span>
+            </button>
+
+            <div class="top-score-select-panel">
+
+                <div class="top-score-select" id="top-score-title-select" style="overflow: hidden;">
+                    <button type="button" data-title-id="0">Top Events</button>
+                    <ul class="top-score-select-list">
+                        <li data-title-id="0" class="top-bar-title-select">Top Events</li>
+                        <li data-title-id="9" class="top-bar-title-select">Call of Duty</li>
+                        <li data-title-id="6" class="top-bar-title-select">CS:GO</li>
+                        <li data-title-id="5" class="top-bar-title-select">DOTA 2</li>
+                        <li data-title-id="18" class="top-bar-title-select">Halo</li>
+                        <li data-title-id="4" class="top-bar-title-select">Heroes of the Storm</li>
+                        <li data-title-id="2" class="top-bar-title-select">Hearthstone</li>
+                        <li data-title-id="51" class="top-bar-title-select">Killer Instinct</li>
+                        <li data-title-id="3" class="top-bar-title-select">League of Legends</li>
+                        <li data-title-id="13" class="top-bar-title-select">Mortal Kombat</li>
+                        <li data-title-id="15" class="top-bar-title-select">Marvel vs. Capcom</li>
+                        <li data-title-id="8" class="top-bar-title-select">Overwatch</li>
+                        <li data-title-id="60" class="top-bar-title-select">Rainbow Six</li>
+                        <li data-title-id="7" class="top-bar-title-select">Starcraft</li>
+                        <li data-title-id="10" class="top-bar-title-select">Street Fighter</li>
+                        <li data-title-id="12" class="top-bar-title-select">Super Smash Bros</li>
+                        <li data-title-id="26" class="top-bar-title-select">Smite</li>
+                        <li data-title-id="25" class="top-bar-title-select">World of Tanks</li>
+                    </ul>
+                </div>
+
+                <div class="top-score-select" id="top-score-date-select" style="overflow: hidden;">
+                    <button type="button" id="top-score-date-button" data-date-string="2016-05-06">Today</button>
+                    <ul class="top-score-select-list">
+                        <li class="top-score-date-select" data-date-string="2016-05-05" id="top-score-date-prev">Yesterday</li>
+                        <li class="top-score-date-select" data-date-string="2016-05-06" id="top-score-date-current">Today</li>
+                        <li class="top-score-date-select" data-date-string="2016-05-07" id="top-score-date-next">Tomorrow</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <button data-dir="prev" class="top-score-arrow left" style="display: none;">
+                <span class="icon-left-open"> <strong> < </strong> </span>
+            </button>
+
+            <button data-dir="next" class="top-score-arrow right">
+                <span class="icon-right-open"> <strong> > </strong>  </span>
+            </button>
+
+            <div class="top-score-list-container">
+                <ul class="top-score-list" style="width: 6550px;"><li class="top-score-list-logo-text" style="display: table;"><span>AUS/NZ Call of Duty World League</span></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462528800" data-match="3208" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/teamorbitanz.png" height="20" width="20" alt="Team Orbit"> Team Orbit<span class="top-score-panel-score winner">3</span></div><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/thechiefs.png" height="20" width="20" alt="Chiefs eSports Club"> Chiefs<span class="top-score-panel-score ">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>Dreamhack Austin</span></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462564800" data-match="1129" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">3:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/luminositygaming.png" height="20" width="20" alt="Luminosity Gaming"> Luminosity<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/splyce.png" height="20" width="20" alt="Splyce"> Splyce<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462570200" data-match="3200" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">4:30 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/tempostorm.png" height="20" width="20" alt="Tempo Storm"> Tempo Storm<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/nrgesports.png" height="20" width="20" alt="NRG Esports"> NRG Esports<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462575600" data-match="3196" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">6:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/counterlogicgaming.png" height="20" width="20" alt="Counter Logic Gaming"> CLG<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/cloud9.png" height="20" width="20" alt="Cloud9"> Cloud9<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462581000" data-match="3201" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">7:30 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/teamliquid.png" height="20" width="20" alt="Team Liquid"> Team Liquid<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/selflessgaming.png" height="20" width="20" alt="Selfless Gaming"> Selfless Gaming<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462586400" data-match="3197" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">9:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462591800" data-match="3202" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">10:30 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>NA Manila Major Regional Qualifers</span></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462557600" data-match="3106" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">1:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="Shazam"> Shazam<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/digitalchaos.png" height="20" width="20" alt="Digital Chaos"> Digital Chaos<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462570200" data-match="3107" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">4:30 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="Dragneel"> Dragneel<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462582800" data-match="3108" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">8:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>EU Manila Major Regional Qualifers</span></li><li class="top-score-panel" data-stream="https://www.twitch.tv/beyondthesummit3" data-status="Live" data-start-time="1462537800" data-match="3123"><div class="top-score-screen"><div class="top top-score-highlight"><span class="top-score-left-text pull-left red-txt">Live</span><span class="top-score-right-text pull-right">29:56 - G3</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="No Diggity"> No Diggity<span class="top-score-panel-score ">1</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/teamempire.png" height="20" width="20" alt="Team Empire"> Team Empire<span class="top-score-panel-score ">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462550400" data-match="3124"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">11:00 AM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/adfinem.png" height="20" width="20" alt="Ad Finem"> Ad Finem<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462525200" data-match="3122" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="No Diggity"> No Diggity<span class="top-score-panel-score ">1</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/adfinem.png" height="20" width="20" alt="Ad Finem"> Ad Finem<span class="top-score-panel-score winner">2</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>China Manila Major Regional Qualifers</span></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462512000" data-match="3139" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/cdecyouth.png" height="20" width="20" alt="CDEC Youth"> CDEC Youth<span class="top-score-panel-score ">0</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/ehome.png" height="20" width="20" alt="EHOME"> EHOME<span class="top-score-panel-score winner">2</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462521300" data-match="3140" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/ehome.png" height="20" width="20" alt="EHOME"> EHOME<span class="top-score-panel-score ">0</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/newbee.png" height="20" width="20" alt="Newbee"> Newbee<span class="top-score-panel-score winner">3</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>SEA Manila Major Regional Qualifers</span></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462516200" data-match="3155" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/mineski.png" height="20" width="20" alt="Mineski"> Mineski<span class="top-score-panel-score winner">2</span></div><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/teamtaring.png" height="20" width="20" alt="Team Taring"> Team Taring<span class="top-score-panel-score ">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462528800" data-match="3156" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/tncgaming.png" height="20" width="20" alt="TnC Gaming"> TnC Gaming<span class="top-score-panel-score ">0</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/mineski.png" height="20" width="20" alt="Mineski"> Mineski<span class="top-score-panel-score winner">3</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>Dreamhack Austin</span></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462564800" data-match="3157" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">3:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/pandaglobal.png" height="20" width="20" alt="Panda Global"> Panda Global<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/teamnaventic.png" height="20" width="20" alt="Team Naventic"> Team Naventic<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462564800" data-match="3158" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">3:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/tncgaming.png" height="20" width="20" alt="TnC Gaming"> TnC Gaming<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/cloud9.png" height="20" width="20" alt="Cloud9"> Cloud9<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462572900" data-match="3160" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">5:15 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/cognitivegaming.png" height="20" width="20" alt="COGnitive Gaming"> COG<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/galeforceesports.png" height="20" width="20" alt="Gale Force Esports"> Gale Force Esports<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462572900" data-match="3159" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">5:15 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/tempostorm.png" height="20" width="20" alt="Tempo Storm"> Tempo Storm<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/astralauthority.png" height="20" width="20" alt="Astral Authority"> Astral Authority<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462581000" data-match="3162" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">7:30 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462581000" data-match="3161" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">7:30 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462589100" data-match="3164" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">9:45 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462589100" data-match="3163" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">9:45 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="To Be Decided"> To Be Decided<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>Gold Series Heroes League</span></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462528800" data-match="2672" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/xteam.png" height="20" width="20" alt="X-Team"> X-Team<span class="top-score-panel-score winner">3</span></div><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/zeropanda.png" height="20" width="20" alt="ZeroPanda"> ZeroPanda<span class="top-score-panel-score ">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462536000" data-match="2701" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="The Star Dream Team"> TSD Team<span class="top-score-panel-score winner">3</span></div><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="Team Young Legends"> Team YL<span class="top-score-panel-score ">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>Mid-Season Invitational</span></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462523400" data-match="2846" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/flashwolves.png" height="20" width="20" alt="Flash Wolves"> Flash Wolves<span class="top-score-panel-score winner">1</span></div><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/sktelecomt1_3.png" height="20" width="20" alt="SK Telecom T1"> SK Telecom T1<span class="top-score-panel-score ">0</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462527000" data-match="2847" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/counterlogicgaming.png" height="20" width="20" alt="Counter Logic Gaming"> CLG<span class="top-score-panel-score winner">1</span></div><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/supermassiveesports.png" height="20" width="20" alt="SuperMassive eSports"> SME<span class="top-score-panel-score ">0</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462512600" data-match="2843" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/flashwolves.png" height="20" width="20" alt="Flash Wolves"> Flash Wolves<span class="top-score-panel-score ">0</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/royalnevergiveup.png" height="20" width="20" alt="Royal Never Give Up"> RNG<span class="top-score-panel-score winner">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462516200" data-match="2844" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/counterlogicgaming.png" height="20" width="20" alt="Counter Logic Gaming"> CLG<span class="top-score-panel-score winner">1</span></div><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/sktelecomt1_3.png" height="20" width="20" alt="SK Telecom T1"> SK Telecom T1<span class="top-score-panel-score ">0</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462519800" data-match="2845" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/supermassiveesports.png" height="20" width="20" alt="SuperMassive eSports"> SME<span class="top-score-panel-score ">0</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/g2esports.png" height="20" width="20" alt="G2 Esports"> G2 Esports<span class="top-score-panel-score winner">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="Final" data-start-time="1462530600" data-match="2848" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">Final</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team loser"><img src="https://teams.pvplive.net/g2esports.png" height="20" width="20" alt="G2 Esports"> G2 Esports<span class="top-score-panel-score ">0</span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/royalnevergiveup.png" height="20" width="20" alt="Royal Never Give Up"> RNG<span class="top-score-panel-score winner">1</span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-list-logo-text" style="display: table;"><span>EU Smite Pro League</span></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462554000" data-match="1465" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">12:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/leftovers.png" height="20" width="20" alt="Leftovers"> Leftovers<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/fnatic.png" height="20" width="20" alt="Fnatic"> Fnatic<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462560300" data-match="1466" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">1:45 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/torpedo.png" height="20" width="20" alt="Torpedo"> Torpedo<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/cringecrew.png" height="20" width="20" alt="Cringe Crew"> Cringe Crew<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462564800" data-match="1467" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">3:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/paradigm.png" height="20" width="20" alt="Paradigm"> Paradigm<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/missinglogo.png" height="20" width="20" alt="Hungry for More"> Hungry for More<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li><li class="top-score-panel" data-stream="" data-status="" data-start-time="1462568400" data-match="1468" style="display: list-item;"><div class="top-score-screen"><div class="top"><span class="top-score-left-text pull-left">4:00 PM CDT</span></div><div class="top-score-panel-teams"><div class="top-score-panel-team "><img src="https://teams.pvplive.net/panthera.png" height="20" width="20" alt="Panthera"> Panthera<span class="top-score-panel-score "></span></div><div class="top-score-panel-team "><img src="https://teams.pvplive.net/dignitas.png" height="20" width="20" alt="Team Dignitas"> Team Dignitas<span class="top-score-panel-score "></span></div></div></div><div class="top-score-buttons" style="display: none;"><a href="#" target="_blank" class="stream-link"><div class="top-score-panel-button">Watch</div></a></div></li></ul>
+            </div>
+        </div>
+
+    </div>
+    <br>
+</header>
+<br>
+<div class="row">
+    <h1 style="padding-left:12px; display:inline">Title to Draw You In.</h1>
+    <h4 style="display:inline; float:right; padding-right: 12px;  margin-top:20px;">Friday, May 6th, 2016</h4>
+    <div class="medium-8 columns">
+        <p><img src="http://placehold.it/900x450&amp;text=Promoted Article" alt="main article image"></p>
+    </div>
+    <div class="medium-4 columns">
+        <p><img src="http://placehold.it/400x200&amp;text=Other cool article" alt="article promo image"></p>
+        <p><img src="http://placehold.it/400x200&amp;text=Other cool article" alt="article promo image"></p>
+    </div>
+</div>
+<hr>
+<div class="row column">
+    <h4 style="margin: 0;" class="text-center">HAPPENING NOW</h4>
+</div>
+<hr>
+<div class="row small-up-3 medium-up-4 large-up-5">
+    <div class="column">
+        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
+    </div>
+    <div class="column">
+        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
+    </div>
+    <div class="column">
+        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
+    </div>
+    <div class="column show-for-medium">
+        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
+    </div>
+    <div class="column show-for-large">
+        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
+    </div>
+</div>
+<hr>
+<div class="row column">
+    <h4 style="margin: 0;" class="text-center">LATEST STORIES</h4>
+</div>
+<hr>
+<div class="row">
+    <div class="large-8 columns" style="border-right: 1px solid #E3E5E8;">
+        <article>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="http://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Some Title</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="http://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Thinking about substituting onion news article titles here</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="http://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Paul Ryan emotionally unavailble to party outsiders</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="http://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Local man decides to eat lunch at 10:59, Anarchy ensues</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="http://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Roses Are Red, Violets are Blue</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="http://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">I made this website, can I have an interview?</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="large-6 columns">
+                    <p><img src="http://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                </div>
+                <div class="large-6 columns">
+                    <h5><a href="#">Sorry this is in foundation and not bootstrap.</a></h5>
+                    <p>
+                        <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                        <span><i class="fi-comments"> 6 comments</i></span>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+                </div>
+            </div>
+            <hr>
+            <ul class="pagination" role="navigation" aria-label="Pagination">
+                <li class="disabled">Previous <span class="show-for-sr">page</span></li>
+                <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+                <li><a href="#" aria-label="Page 2">2</a></li>
+                <li><a href="#" aria-label="Page 3">3</a></li>
+                <li><a href="#" aria-label="Page 4">4</a></li>
+                <li><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+            </ul>
+        </article>
+    </div>
+    <div class="large-4 columns">
+        <aside>
+            <div class="row small-up-3">
+                <div class="column text-center">
+                    <i class="fi-social-facebook"></i>
+                    <h6>56,009</h6>
+                    <p><small>FOLLOWERS</small></p>
+                    <br>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-twitter"></i>
+                    <h6>76,905</h6>
+                    <p><small>FOLLOWERS</small></p>
+                    <br>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-instagram"></i>
+                    <h6>34,099</h6>
+                    <p><small>FOLLOWERS</small></p>
+                    <br>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-tumblr"></i>
+                    <h6>13,765</h6>
+                    <p><small>FOLLOWERS</small></p>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-pinterest"></i>
+                    <h6>9,283</h6>
+                    <p><small>FOLLOWERS</small></p>
+                </div>
+                <div class="column text-center">
+                    <i class="fi-social-youtube"></i>
+                    <h6>99,000</h6>
+                    <p><small>FOLLOWERS</small></p>
+                </div>
+            </div>
+            <br>
+            <div class="row column">
+                <p class="lead">FROM OUR FRIENDS</p>
+                <p><img src="http://placehold.it/400x300&amp;text=Buy Me!" alt="advertisement of ShamWow"></p>
+            </div>
+            <br>
+            <div class="row column">
+                <p class="lead">TRENDING POSTS</p>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="http://placehold.it/100">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>All I need is a space suit and I'm ready to go.</h5>
+                    </div>
+                </div>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="http://placehold.it/100">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>Are the stars out tonight? I don't know if it's cloudy or bright.</h5>
+                    </div>
+                </div>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="http://placehold.it/100">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>And the world keeps spinning.</h5>
+                    </div>
+                </div>
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" src="http://placehold.it/100">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>Cold hearted orb that rules the night.</h5>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<footer>
+    <div class="row expanded">
+        <div class="medium-6 columns">
+            <ul class="menu">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Invest</a></li>
+                <li><a href="#">Something else</a></li>
+            </ul>
+        </div>
+        <div class="medium-6 columns">
+            <ul class="menu align-right">
+                <li class="menu-text">Copyright © 2016 Cole Mecum Industries</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
