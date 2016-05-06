@@ -2,166 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93e7f9c0-6d18-4a92-ab55-07e65fec654d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.babelrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.bowerrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.eslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.github/PULL_REQUEST_TEMPLATE.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/mockup.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.scss-lint.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/foundation-flex.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/foundation-rtl.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/foundation.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/code-of-conduct.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customizer/complete.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customizer/config.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customizer/essential.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customizer/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customizer/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customizer/lib/js.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/customizer/lib/sass.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation-flex.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation-flex.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation-rtl.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation-rtl.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/foundation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.abide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.accordion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.accordionMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.drilldown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.dropdownMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.equalizer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.interchange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.magellan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.offcanvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.orbit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.responsiveMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.responsiveToggle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.reveal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.slider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.sticky.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.tabs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.toggler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.box.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.keyboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.mediaQuery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.motion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.nest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.timerAndImageLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.touch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/plugins/foundation.util.triggers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docslink.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.abide.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.accordion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.accordionMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.drilldown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.dropdownMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.equalizer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.interchange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.magellan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.offcanvas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.orbit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.responsiveMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.responsiveToggle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.reveal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.slider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.sticky.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.tabs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.toggler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.box.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.keyboard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.mediaQuery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.motion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.nest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.timerAndImageLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.touch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/foundation.util.triggers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/_global.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_accordion-menu.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_accordion.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_badge.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_breadcrumbs.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_button-group.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_button.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_callout.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_close-button.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_drilldown.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_dropdown-menu.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_dropdown.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_flex-video.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_flex.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_float.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_label.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_media-object.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_menu-icon.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_menu.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_off-canvas.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_orbit.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_pagination.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_progress-bar.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_reveal.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_slider.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_sticky.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_switch.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_table.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_tabs.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_thumbnail.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_title-bar.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_tooltip.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_top-bar.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/components/_visibility.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_checkbox.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_error.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_fieldset.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_forms.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_help-text.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_input-group.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_label.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_meter.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_progress.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_range.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_select.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/forms/_text.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/foundation.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_classes.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_column.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_flex-grid.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_grid.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_gutter.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_layout.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_position.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_row.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/grid/_size.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/settings/_settings.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/typography/_alignment.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/typography/_base.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/typography/_helpers.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/typography/_print.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/typography/_typography.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_breakpoint.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_color.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_flex.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_selector.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_unit.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_util.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/util/_value.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="mockup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -185,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="698">
-              <caret line="812" column="48" selection-start-line="812" selection-start-column="48" selection-end-line="812" selection-end-column="48" />
+            <state relative-caret-position="90">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -323,6 +166,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Cole" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -383,20 +231,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mockup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mockup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mockup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -475,12 +309,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1462549696594</updated>
-      <workItem from="1462549698794" duration="4483000" />
+      <workItem from="1462549698794" duration="4701000" />
     </task>
+    <task id="LOCAL-00001" summary="First">
+      <created>1462554958492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1462554958492</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4483000" />
+    <option name="totallyTimeSpent" value="4701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1023" extended-state="6" />
@@ -507,6 +349,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First" />
+    <option name="LAST_COMMIT_MESSAGE" value="First" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -530,8 +376,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="812" column="48" selection-start-line="812" selection-start-column="48" selection-end-line="812" selection-end-column="48" />
+        <state relative-caret-position="90">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
